@@ -1,7 +1,20 @@
 /**
  * Weapons Stat Calculator
+ *
+ * WEAPONS STAT (101-200):
+ * Governs weapon damage.
  * Formula: D = (W - 100) × 0.05%
  * where D = damage % increase, W = weapons stat
+ * Range: 100 = 0%, 200 = 5% damage increase
+ *
+ * MELEE STAT (101-200):
+ * Governs melee damage, including uncharged melees and Glaives.
+ * Formula: D = (M - 100) × 0.2% (??? Need to verify)
+ * where D = damage % increase, M = melee stat
+ * Range: 100 = 0%, 200 = 20% damage increase (PvP)
+ *
+ * Base Glaive melee damage in PvP: 69 HP ??? Somehow, base glaive melee + 190 weapon has to be greater than 115 HP for Glaive melee 2 tap
+ * Source: https://docs.google.com/spreadsheets/d/1FT-BL6UA6ntNEN7_btqwlfJaPYTAeIFvlhpkvWHTajc/edit?gid=303507057#gid=303507057
  */
 
 /**

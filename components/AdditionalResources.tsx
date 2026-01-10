@@ -31,6 +31,12 @@ const resources = [
     notes: "Glaive melee breakpoints discussion",
     type: "reddit" as const,
   },
+  {
+    title: "Destiny 2 Glaive Compendium",
+    url: "https://docs.google.com/spreadsheets/d/1FT-BL6UA6ntNEN7_btqwlfJaPYTAeIFvlhpkvWHTajc/edit?gid=303507057#gid=303507057",
+    notes: "Base damage values for weapons and melees",
+    type: "googleSheet" as const,
+  },
 ];
 
 function ResourceIcon({ type }: { type: "googleSheet" | "reddit" | "link" }) {

@@ -170,13 +170,18 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
             {data.weaponsStat}
           </span>
           {(() => {
-            // Skip melee stats - different formula
+            // Melee stat: 100 = 0%, 200 = 20% (0.2% per point)
             if (data.weaponsStat.toLowerCase().includes("melee")) {
-              return (
-                <span className="text-xs text-dim">
-                  (WIP)
-                </span>
-              );
+              const meleeStatNum = parseInt(data.weaponsStat.replace(/[^0-9]/g, ""));
+              if (!isNaN(meleeStatNum) && meleeStatNum >= 100) {
+                const meleeDmgPercent = (meleeStatNum - 100) * 0.2;
+                return (
+                  <span className="text-sm text-solar">
+                    (+{meleeDmgPercent.toFixed(0)}%)
+                  </span>
+                );
+              }
+              return null;
             }
             const statNum = parseInt(data.weaponsStat.replace(/[^0-9]/g, ""));
             if (!isNaN(statNum) && statNum >= 100) {
