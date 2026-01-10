@@ -1,6 +1,7 @@
 "use client";
 
 import { breakpoints, type Breakpoint } from "@/data/breakpoints";
+import { calcDamagePercent, formatDamagePercent } from "@/lib/calculator";
 
 function TTKChange({ baseTTK, newTTK }: { baseTTK: string; newTTK: string }) {
   if (baseTTK === "-" || newTTK === "-") {
@@ -164,9 +165,31 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
       </td>
       <td className="py-4 px-4 font-semibold text-base">{data.frame}</td>
       <td className="py-4 px-4">
-        <span className="font-display text-lg text-arc font-bold tracking-wider">
-          {data.weaponsStat}
-        </span>
+        <div className="flex items-baseline gap-2">
+          <span className="font-display text-lg text-arc font-bold tracking-wider">
+            {data.weaponsStat}
+          </span>
+          {(() => {
+            // Skip melee stats - different formula
+            if (data.weaponsStat.toLowerCase().includes("melee")) {
+              return (
+                <span className="text-xs text-dim">
+                  (WIP)
+                </span>
+              );
+            }
+            const statNum = parseInt(data.weaponsStat.replace(/[^0-9]/g, ""));
+            if (!isNaN(statNum) && statNum >= 100) {
+              const dmgPercent = calcDamagePercent(statNum);
+              return (
+                <span className="text-sm text-solar">
+                  (+{formatDamagePercent(dmgPercent)})
+                </span>
+              );
+            }
+            return null;
+          })()}
+        </div>
         {data.statNote && (
           <div className="text-xs text-dim mt-0.5">{data.statNote}</div>
         )}

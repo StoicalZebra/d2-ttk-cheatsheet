@@ -40,7 +40,7 @@ export const breakpoints: Breakpoint[] = [
     baseSTK: "2h2b",
     newTTK: "0.67s",
     newSTK: "3h0b",
-    perksNeeded: "Overclocked Heatsink",
+    perksNeeded: "Overclocked Heatsink (+2%)",
     reference: "Destiny WeaponStat Chart v1.15",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
@@ -116,7 +116,7 @@ export const breakpoints: Breakpoint[] = [
     baseSTK: "11h1b",
     newTTK: "0.67s",
     newSTK: "11h0b",
-    perksNeeded: "Overclocked Heatsink",
+    perksNeeded: "Overclocked Heatsink (+2%)",
     reference: "Destiny WeaponStat Chart v1.15",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
