@@ -167,6 +167,9 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
         <span className="font-display text-lg text-arc font-bold tracking-wider">
           {data.weaponsStat}
         </span>
+        {data.statNote && (
+          <div className="text-xs text-dim mt-0.5">{data.statNote}</div>
+        )}
       </td>
       <td className="py-4 px-4">
         <TTKChange baseTTK={data.baseTTK} newTTK={data.newTTK} />
@@ -178,7 +181,12 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
         <PerkBadge perk={data.perksNeeded} />
       </td>
       <td className="py-4 px-4">
-        <SourceIcon reference={data.reference} url={data.referenceUrl} />
+        <div className="flex items-center gap-1">
+          <SourceIcon reference={data.reference} url={data.referenceUrl} />
+          {data.additionalRefs?.map((ref, i) => (
+            <SourceIcon key={i} reference={ref.name} url={ref.url} />
+          ))}
+        </div>
       </td>
     </tr>
   );

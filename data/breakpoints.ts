@@ -1,7 +1,13 @@
+export interface Reference {
+  name: string;
+  url: string;
+}
+
 export interface Breakpoint {
   weapon: string;
   frame: string;
   weaponsStat: string;
+  statNote?: string; // e.g., "Sources vary (186-188)"
   baseTTK: string;
   baseSTK: string;
   newTTK: string;
@@ -9,6 +15,7 @@ export interface Breakpoint {
   perksNeeded: string;
   reference: string;
   referenceUrl?: string;
+  additionalRefs?: Reference[]; // For multiple sources
 }
 
 export const breakpoints: Breakpoint[] = [
@@ -54,7 +61,8 @@ export const breakpoints: Breakpoint[] = [
   {
     weapon: "Pulse Rifle",
     frame: "Lightweight (450)",
-    weaponsStat: "186",
+    weaponsStat: "187*",
+    statNote: "Sources vary (186-188)",
     baseTTK: "0.87s",
     baseSTK: "7h1b",
     newTTK: "0.80s",
@@ -63,6 +71,16 @@ export const breakpoints: Breakpoint[] = [
     reference: "Destiny WeaponStat Chart v1.15",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+    additionalRefs: [
+      {
+        name: "Era's Weapon Stat Calculator",
+        url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
+      },
+      {
+        name: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2",
+        url: "https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=0#gid=0",
+      },
+    ],
   },
   {
     weapon: "Sidearm",
