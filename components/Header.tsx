@@ -93,6 +93,13 @@ export default function Header() {
           >
             Calculator
           </a>
+          <span className="text-dim">|</span>
+          <a
+            href="#resources"
+            className="text-sm text-arc hover:text-solar transition-colors font-medium"
+          >
+            Resources
+          </a>
         </div>
 
         {/* Decorative elements */}

@@ -106,7 +106,7 @@ export const breakpoints: Breakpoint[] = [
   {
     weapon: "Glaive Melee",
     frame: "Any",
-    weaponsStat: "Melee 195+",
+    weaponsStat: "Melee 190",
     baseTTK: "-",
     baseSTK: "3 Hits",
     newTTK: "-",
@@ -114,7 +114,7 @@ export const breakpoints: Breakpoint[] = [
     perksNeeded: "-",
     reference: "Reddit",
     referenceUrl:
-      "https://www.reddit.com/r/CrucibleGuidebook/comments/1ptr0fj/are_there_any_popular_weapon_stats_breaking/",
+      "https://www.reddit.com/r/CrucibleGuidebook/comments/1q8vze1/ttk_breakpoints_cheatsheet_weapons_stat/",
   },
 ];
 

@@ -230,7 +230,7 @@ export default function BreakpointsTable() {
                   Weapon
                 </th>
                 <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  Frame
+                  Frame (RPM)
                 </th>
                 <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
                   <span className="text-arc">Wpn Stat</span>

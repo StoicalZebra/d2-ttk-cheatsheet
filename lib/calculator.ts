@@ -1,6 +1,6 @@
 /**
  * Weapons Stat Calculator
- * Formula: D = (W - 100) × 0.06
+ * Formula: D = (W - 100) × 0.05%
  * where D = damage % increase, W = weapons stat
  */
 
@@ -10,7 +10,7 @@
  * @returns The damage percentage increase as a decimal (e.g., 0.05 for 5%)
  */
 export function calcDamagePercent(weaponsStat: number): number {
-  return (weaponsStat - 100) * 0.0006;
+  return (weaponsStat - 100) * 0.0005;
 }
 
 /**
@@ -19,7 +19,7 @@ export function calcDamagePercent(weaponsStat: number): number {
  * @returns The required weapons stat value
  */
 export function calcRequiredStat(targetDamagePercent: number): number {
-  return targetDamagePercent / 0.0006 + 100;
+  return targetDamagePercent / 0.0005 + 100;
 }
 
 /**
@@ -45,14 +45,14 @@ export function formatWeaponsStat(stat: number): string {
  */
 export const referenceTable = [
   { stat: 100, damagePercent: 0 },
-  { stat: 110, damagePercent: 0.006 },
-  { stat: 120, damagePercent: 0.012 },
-  { stat: 130, damagePercent: 0.018 },
-  { stat: 140, damagePercent: 0.024 },
-  { stat: 150, damagePercent: 0.03 },
-  { stat: 160, damagePercent: 0.036 },
-  { stat: 170, damagePercent: 0.042 },
-  { stat: 180, damagePercent: 0.048 },
-  { stat: 190, damagePercent: 0.054 },
-  { stat: 200, damagePercent: 0.06 },
+  { stat: 110, damagePercent: 0.005 },
+  { stat: 120, damagePercent: 0.01 },
+  { stat: 130, damagePercent: 0.015 },
+  { stat: 140, damagePercent: 0.02 },
+  { stat: 150, damagePercent: 0.025 },
+  { stat: 160, damagePercent: 0.03 },
+  { stat: 170, damagePercent: 0.035 },
+  { stat: 180, damagePercent: 0.04 },
+  { stat: 190, damagePercent: 0.045 },
+  { stat: 200, damagePercent: 0.05 },
 ];

@@ -235,7 +235,7 @@ export default function WeaponsStatCalculator() {
       {/* Formula explanation */}
       <div className="flex items-center gap-3 text-dim text-sm mb-6">
         <span>
-          Formula: <span className="text-arc font-mono">D = (W - 100) × 0.06%</span> where D = damage increase, W = weapons stat
+          Formula: <span className="text-arc font-mono">D = (W - 100) × 0.05%</span> where D = damage increase, W = weapons stat
         </span>
         <a
           href="https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=948935720#gid=948935720"
