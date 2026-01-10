@@ -54,15 +54,15 @@ export const breakpoints: Breakpoint[] = [
   {
     weapon: "Pulse Rifle",
     frame: "Lightweight (450)",
-    weaponsStat: "190",
+    weaponsStat: "186",
     baseTTK: "0.87s",
     baseSTK: "7h1b",
     newTTK: "0.80s",
     newSTK: "7h0b",
     perksNeeded: "None",
-    reference: "Reddit",
+    reference: "Destiny WeaponStat Chart v1.15",
     referenceUrl:
-      "https://www.reddit.com/r/CrucibleGuidebook/comments/1ptr0fj/are_there_any_popular_weapon_stats_breaking/",
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
   {
     weapon: "Sidearm",
