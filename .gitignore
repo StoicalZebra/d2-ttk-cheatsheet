@@ -42,3 +42,6 @@ next-env.d.ts
 *.xlsx
 log.md
 temp_backup/
+
+# MCP config
+.mcp.json

@@ -40,6 +40,9 @@
   --color-weapon-glaive: #85c1e9;
   --color-weapon-glaive-bg: rgba(77, 136, 255, 0.2);
   --color-weapon-glaive-border: rgba(77, 136, 255, 0.3);
+  --color-weapon-scout: #e6b980;
+  --color-weapon-scout-bg: rgba(230, 185, 128, 0.2);
+  --color-weapon-scout-border: rgba(230, 185, 128, 0.3);
 }
 
 /* Light theme - warm paper tone */
@@ -75,6 +78,9 @@
   --color-weapon-glaive: #1e5fa8;
   --color-weapon-glaive-bg: rgba(30, 95, 168, 0.15);
   --color-weapon-glaive-border: rgba(30, 95, 168, 0.5);
+  --color-weapon-scout: #9a6d38;
+  --color-weapon-scout-bg: rgba(154, 109, 56, 0.15);
+  --color-weapon-scout-border: rgba(154, 109, 56, 0.5);
 }
 
 * {

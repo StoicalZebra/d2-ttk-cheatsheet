@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import BreakpointsTable from "@/components/BreakpointsTable";
+import EaseOfUseTable from "@/components/EaseOfUseTable";
 import WeaponsStatCalculator from "@/components/WeaponsStatCalculator";
 import AdditionalResources from "@/components/AdditionalResources";
 import Footer from "@/components/Footer";
@@ -33,6 +34,7 @@ export default function Home() {
 
         <div className="space-y-16">
           <BreakpointsTable />
+          <EaseOfUseTable />
           <WeaponsStatCalculator />
           <AdditionalResources />
         </div>

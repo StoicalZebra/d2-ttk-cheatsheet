@@ -1,56 +1,8 @@
 "use client";
 
-import { breakpoints, type Breakpoint } from "@/data/breakpoints";
-import { calcDamagePercent, formatDamagePercent } from "@/lib/calculator";
-
-function TTKChange({ baseTTK, newTTK }: { baseTTK: string; newTTK: string }) {
-  if (baseTTK === "-" || newTTK === "-") {
-    return <span className="text-dim">-</span>;
-  }
-
-  const baseNum = parseFloat(baseTTK);
-  const newNum = parseFloat(newTTK);
-  const diff = baseNum - newNum;
-  const percentage = ((diff / baseNum) * 100).toFixed(0);
-
-  return (
-    <div className="flex items-center gap-2">
-      <span className="text-dim line-through">{baseTTK}</span>
-      <svg
-        className="w-4 h-4 text-arc opacity-60"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-      <span className="text-arc font-semibold">{newTTK}</span>
-      <span className="text-xs text-solar opacity-80">-{percentage}%</span>
-    </div>
-  );
-}
-
-function STKChange({ baseSTK, newSTK }: { baseSTK: string; newSTK: string }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="text-dim">{baseSTK}</span>
-      <svg
-        className="w-3 h-3 text-arc opacity-40"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-      <span className="text-arc">{newSTK}</span>
-    </div>
-  );
-}
+import { easeOfUseBreakpoints, type EaseOfUseBreakpoint } from "@/data/breakpoints";
 
 function WeaponBadge({ weapon }: { weapon: string }) {
-  // Use CSS variables that change with theme for proper light/dark mode support
   const styleMap: Record<string, React.CSSProperties> = {
     "Hand Cannon": {
       backgroundColor: "var(--color-weapon-hc-bg)",
@@ -71,11 +23,6 @@ function WeaponBadge({ weapon }: { weapon: string }) {
       backgroundColor: "var(--color-weapon-smg-bg)",
       color: "var(--color-weapon-smg)",
       borderColor: "var(--color-weapon-smg-border)",
-    },
-    "Glaive Melee": {
-      backgroundColor: "var(--color-weapon-glaive-bg)",
-      color: "var(--color-weapon-glaive)",
-      borderColor: "var(--color-weapon-glaive-border)",
     },
     "Scout Rifle": {
       backgroundColor: "var(--color-weapon-scout-bg)",
@@ -109,6 +56,24 @@ function PerkBadge({ perk }: { perk: string }) {
     <span className="inline-block px-2.5 py-1 text-sm bg-void-lighter border border-[var(--color-border)] text-[var(--color-text)] tracking-wide font-medium">
       {perk}
     </span>
+  );
+}
+
+function STKChange({ baseSTK, newSTK }: { baseSTK: string; newSTK: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-dim">{baseSTK}</span>
+      <svg
+        className="w-3 h-3 text-stasis opacity-40"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+      <span className="text-stasis">{newSTK}</span>
+    </div>
   );
 }
 
@@ -146,7 +111,7 @@ function SourceIcon({ reference, url }: { reference: string; url?: string }) {
         </svg>
       ) : (
         <svg
-          className="w-4 h-4 text-dim group-hover:text-arc group-hover:scale-110 transition-all"
+          className="w-4 h-4 text-dim group-hover:text-stasis group-hover:scale-110 transition-all"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -159,7 +124,7 @@ function SourceIcon({ reference, url }: { reference: string; url?: string }) {
   );
 }
 
-function TableRow({ data, index }: { data: Breakpoint; index: number }) {
+function TableRow({ data, index }: { data: EaseOfUseBreakpoint; index: number }) {
   return (
     <tr
       className="table-row-hover border-b border-[var(--color-border)]/50 opacity-0 animate-fade-in-up"
@@ -170,33 +135,7 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
       </td>
       <td className="py-4 px-4 font-semibold text-base">{data.frame}</td>
       <td className="py-4 px-4">
-        <div className="flex items-baseline gap-2">
-          <span className="font-display text-lg text-arc font-bold tracking-wider">
-            {data.weaponsStat}
-          </span>
-          {(() => {
-            // Skip melee stats - different formula, needs research
-            if (data.weaponsStat.toLowerCase().includes("melee")) {
-              return null;
-            }
-            const statNum = parseInt(data.weaponsStat.replace(/[^0-9]/g, ""));
-            if (!isNaN(statNum) && statNum >= 100) {
-              const dmgPercent = calcDamagePercent(statNum);
-              return (
-                <span className="text-sm text-solar">
-                  (+{formatDamagePercent(dmgPercent)})
-                </span>
-              );
-            }
-            return null;
-          })()}
-        </div>
-        {data.statNote && (
-          <div className="text-xs text-dim mt-0.5">{data.statNote}</div>
-        )}
-      </td>
-      <td className="py-4 px-4">
-        <TTKChange baseTTK={data.baseTTK} newTTK={data.newTTK} />
+        <span className="text-stasis font-semibold">{data.ttk}</span>
       </td>
       <td className="py-4 px-4">
         <STKChange baseSTK={data.baseSTK} newSTK={data.newSTK} />
@@ -205,54 +144,38 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
         <PerkBadge perk={data.perksNeeded} />
       </td>
       <td className="py-4 px-4">
-        <div className="flex items-center gap-1">
-          <SourceIcon reference={data.reference} url={data.referenceUrl} />
-          {data.additionalRefs?.map((ref, i) => (
-            <SourceIcon key={i} reference={ref.name} url={ref.url} />
-          ))}
-        </div>
+        <SourceIcon reference={data.reference} url={data.referenceUrl} />
       </td>
     </tr>
   );
 }
 
-export default function BreakpointsTable() {
+export default function EaseOfUseTable() {
   return (
-    <section id="breakpoints" className="relative scroll-mt-6">
+    <section id="ease-of-use" className="relative scroll-mt-6">
       {/* Section Header */}
       <div className="flex items-center gap-4 mb-6 opacity-0 animate-slide-in-left" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>
         <div className="flex items-center gap-3">
-          <div className="w-1 h-8 bg-arc animate-glow-pulse" />
+          <div className="w-1 h-8 bg-stasis animate-glow-pulse" />
           <h2 className="font-display text-2xl tracking-wider uppercase">
-            TTK Breakpoints
+            Ease of Use
           </h2>
         </div>
         <div className="flex-1 h-px bg-gradient-to-r from-[var(--color-border)] to-transparent" />
         <span className="text-dim text-sm font-display tracking-widest">
-          {breakpoints.length} ENTRIES
+          {easeOfUseBreakpoints.length} ENTRIES
         </span>
-        <a
-          href="https://github.com/StoicalZebra/d2-ttk-cheatsheet/issues/new?title=New%20Breakpoint%20Submission&body=%23%23%20Breakpoint%20Details%0A%0A**Weapon%20Type%3A**%20%0A**Frame%3A**%20%0A**Weapons%20Stat%20Required%3A**%20%0A**Base%20TTK%3A**%20%0A**New%20TTK%3A**%20%0A**Shots%20to%20Kill%3A**%20%0A**Perk%20Required%3A**%20%0A%0A%23%23%20Verification%0A%0A**How%20did%20you%20verify%20this%3F**%20%0A%0A**Source%2FReference%3A**%20"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium border border-arc/40 hover:border-arc bg-void-lighter hover:bg-void-light transition-all"
-        >
-          <svg className="w-4 h-4 text-arc" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-          </svg>
-          <span className="text-arc group-hover:text-[var(--color-text)] transition-colors">Submit New</span>
-        </a>
       </div>
 
       {/* Subtitle */}
       <p className="text-dim mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "150ms", animationFillMode: "forwards" }}>
-        Weapons stat thresholds that shift Time-to-Kill. Hit these breakpoints with non-kill-activated damage perks for faster optimal TTK.
+        Perks that reduce headshot requirements without needing a kill first. Same TTK, easier to achieve.
       </p>
 
       {/* Table Container */}
       <div className="relative corner-accents bg-void-light/50 border border-[var(--color-border)] clip-angle-both overflow-hidden">
         {/* Decorative top bar */}
-        <div className="h-1 bg-gradient-to-r from-arc via-arc/50 to-transparent" />
+        <div className="h-1 bg-gradient-to-r from-stasis via-stasis/50 to-transparent" />
 
         <div className="overflow-x-auto">
           <table className="w-full text-left">
@@ -265,10 +188,7 @@ export default function BreakpointsTable() {
                   Frame (RPM)
                 </th>
                 <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  <span className="text-arc">Wpn Stat</span>
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  TTK Shift
+                  <span className="text-stasis">TTK</span>
                 </th>
                 <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
                   STK
@@ -282,7 +202,7 @@ export default function BreakpointsTable() {
               </tr>
             </thead>
             <tbody>
-              {breakpoints.map((bp, index) => (
+              {easeOfUseBreakpoints.map((bp, index) => (
                 <TableRow key={`${bp.weapon}-${bp.frame}`} data={bp} index={index} />
               ))}
             </tbody>
@@ -296,24 +216,12 @@ export default function BreakpointsTable() {
       {/* Legend */}
       <div className="mt-4 flex flex-wrap gap-6 text-sm text-dim opacity-0 animate-fade-in-up" style={{ animationDelay: "600ms", animationFillMode: "forwards" }}>
         <div className="flex items-center gap-2">
-          <span className="text-arc font-bold">TTK</span>
-          <span>= Time to Kill</span>
+          <span className="text-stasis font-bold">TTK</span>
+          <span>= Time to Kill (unchanged)</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-arc font-bold">STK</span>
-          <span>= Shots to Kill</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-arc font-bold">h</span>
-          <span>= headshots</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-arc font-bold">b</span>
-          <span>= bodyshots</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-solar font-bold">-%</span>
-          <span>= TTK reduction</span>
+          <span className="text-stasis font-bold">STK</span>
+          <span>= Shots to Kill (easier mix)</span>
         </div>
       </div>
     </section>
