@@ -1,3 +1,5 @@
+export const BREAKPOINTS_VERSION = "1.0";
+
 export interface Reference {
   name: string;
   url: string;

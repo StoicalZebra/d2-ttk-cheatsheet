@@ -1,4 +1,5 @@
 # TTK Breakpoints Reference
+**Version: 1.0**
 
 This is the source of truth for breakpoint data. Edit this file, then update `data/breakpoints.ts` to match.
 
@@ -58,4 +59,4 @@ Last updated: 2025-01-10
 
 ## Changelog
 
-- 2025-01-10: Initial creation from breakpoints.ts
+- v1.0 (2025-01-10): Initial creation from breakpoints.ts
