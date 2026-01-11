@@ -159,17 +159,6 @@ export const easeOfUseBreakpoints: EaseOfUseBreakpoint[] = [
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
   },
-  {
-    weapon: "Scout Rifle",
-    frame: "Rapid-Fire (260)",
-    ttk: "0.70s",
-    baseSTK: "3h2b",
-    newSTK: "4h0b",
-    perksNeeded: "Enh. Precision Instrument",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
 ];
 
 export const references = [
