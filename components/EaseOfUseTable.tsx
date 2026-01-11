@@ -14,6 +14,11 @@ function WeaponBadge({ weapon }: { weapon: string }) {
       color: "var(--color-weapon-pulse)",
       borderColor: "var(--color-weapon-pulse-border)",
     },
+    Pulse: {
+      backgroundColor: "var(--color-weapon-pulse-bg)",
+      color: "var(--color-weapon-pulse)",
+      borderColor: "var(--color-weapon-pulse-border)",
+    },
     Sidearm: {
       backgroundColor: "var(--color-weapon-sidearm-bg)",
       color: "var(--color-weapon-sidearm)",
@@ -25,6 +30,11 @@ function WeaponBadge({ weapon }: { weapon: string }) {
       borderColor: "var(--color-weapon-smg-border)",
     },
     "Scout Rifle": {
+      backgroundColor: "var(--color-weapon-scout-bg)",
+      color: "var(--color-weapon-scout)",
+      borderColor: "var(--color-weapon-scout-border)",
+    },
+    Scout: {
       backgroundColor: "var(--color-weapon-scout-bg)",
       color: "var(--color-weapon-scout)",
       borderColor: "var(--color-weapon-scout-border)",
@@ -78,7 +88,7 @@ function STKChange({ baseSTK, newSTK }: { baseSTK: string; newSTK: string }) {
 }
 
 function SourceIcon({ reference, url }: { reference: string; url?: string }) {
-  const isReddit = reference.toLowerCase().includes("reddit");
+  const isReddit = reference.toLowerCase().includes("reddit") || url?.includes("reddit.com");
   const isGoogleSheet = url?.includes("docs.google.com");
 
   if (!url) {

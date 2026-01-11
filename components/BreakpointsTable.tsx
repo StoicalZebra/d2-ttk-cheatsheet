@@ -3,7 +3,7 @@
 import { breakpoints, type Breakpoint } from "@/data/breakpoints";
 import { calcDamagePercent, formatDamagePercent } from "@/lib/calculator";
 
-function TTKChange({ baseTTK, newTTK }: { baseTTK: string; newTTK: string }) {
+function TTKChange({ baseTTK, newTTK, statNote }: { baseTTK: string; newTTK: string; statNote?: string }) {
   if (baseTTK === "-" || newTTK === "-") {
     return <span className="text-dim">-</span>;
   }
@@ -11,22 +11,30 @@ function TTKChange({ baseTTK, newTTK }: { baseTTK: string; newTTK: string }) {
   const baseNum = parseFloat(baseTTK);
   const newNum = parseFloat(newTTK);
   const diff = baseNum - newNum;
-  const percentage = ((diff / baseNum) * 100).toFixed(0);
+  const percentageNum = (diff / baseNum) * 100;
+  const isValidPercentage = !isNaN(percentageNum) && isFinite(percentageNum);
 
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-dim line-through">{baseTTK}</span>
-      <svg
-        className="w-4 h-4 text-arc opacity-60"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-      <span className="text-arc font-semibold">{newTTK}</span>
-      <span className="text-xs text-solar opacity-80">-{percentage}%</span>
+    <div>
+      <div className="flex items-center gap-2">
+        <span className="text-dim line-through">{baseTTK}</span>
+        <svg
+          className="w-4 h-4 text-arc opacity-60"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+        <span className="text-arc font-semibold">{newTTK}</span>
+        {isValidPercentage && (
+          <span className="text-xs text-solar opacity-80">-{percentageNum.toFixed(0)}%</span>
+        )}
+      </div>
+      {statNote && (
+        <div className="text-xs text-dim mt-0.5">{statNote}</div>
+      )}
     </div>
   );
 }
@@ -62,6 +70,11 @@ function WeaponBadge({ weapon }: { weapon: string }) {
       color: "var(--color-weapon-pulse)",
       borderColor: "var(--color-weapon-pulse-border)",
     },
+    Pulse: {
+      backgroundColor: "var(--color-weapon-pulse-bg)",
+      color: "var(--color-weapon-pulse)",
+      borderColor: "var(--color-weapon-pulse-border)",
+    },
     Sidearm: {
       backgroundColor: "var(--color-weapon-sidearm-bg)",
       color: "var(--color-weapon-sidearm)",
@@ -78,6 +91,11 @@ function WeaponBadge({ weapon }: { weapon: string }) {
       borderColor: "var(--color-weapon-glaive-border)",
     },
     "Scout Rifle": {
+      backgroundColor: "var(--color-weapon-scout-bg)",
+      color: "var(--color-weapon-scout)",
+      borderColor: "var(--color-weapon-scout-border)",
+    },
+    Scout: {
       backgroundColor: "var(--color-weapon-scout-bg)",
       color: "var(--color-weapon-scout)",
       borderColor: "var(--color-weapon-scout-border)",
@@ -113,7 +131,7 @@ function PerkBadge({ perk }: { perk: string }) {
 }
 
 function SourceIcon({ reference, url }: { reference: string; url?: string }) {
-  const isReddit = reference.toLowerCase().includes("reddit");
+  const isReddit = reference.toLowerCase().includes("reddit") || url?.includes("reddit.com");
   const isGoogleSheet = url?.includes("docs.google.com");
 
   if (!url) {
@@ -191,12 +209,9 @@ function TableRow({ data, index }: { data: Breakpoint; index: number }) {
             return null;
           })()}
         </div>
-        {data.statNote && (
-          <div className="text-xs text-dim mt-0.5">{data.statNote}</div>
-        )}
       </td>
       <td className="py-4 px-4">
-        <TTKChange baseTTK={data.baseTTK} newTTK={data.newTTK} />
+        <TTKChange baseTTK={data.baseTTK} newTTK={data.newTTK} statNote={data.statNote} />
       </td>
       <td className="py-4 px-4">
         <STKChange baseSTK={data.baseSTK} newSTK={data.newSTK} />
@@ -286,7 +301,7 @@ export default function BreakpointsTable() {
             </thead>
             <tbody>
               {breakpoints.map((bp, index) => (
-                <TableRow key={`${bp.weapon}-${bp.frame}`} data={bp} index={index} />
+                <TableRow key={`${bp.weapon}-${bp.frame}-${bp.perksNeeded}`} data={bp} index={index} />
               ))}
             </tbody>
           </table>

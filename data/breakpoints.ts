@@ -1,4 +1,4 @@
-export const BREAKPOINTS_VERSION = "1.0";
+export const BREAKPOINTS_VERSION = "1.1";
 
 export interface Reference {
   name: string;
@@ -30,7 +30,7 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.67s",
     newSTK: "3h0b",
     perksNeeded: "Enhanced Precision Instrument",
-    reference: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2",
+    reference: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2 - dalx21",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=0#gid=0",
   },
@@ -43,25 +43,12 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.67s",
     newSTK: "3h0b",
     perksNeeded: "Overclocked Heatsink (+2%)",
-    reference: "Destiny WeaponStat Chart v1.15",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
   {
-    weapon: "Pulse Rifle",
-    frame: "Adaptive (390)",
-    weaponsStat: "190",
-    baseTTK: "0.93s",
-    baseSTK: "6h1b",
-    newTTK: "0.60s",
-    newSTK: "6h0b",
-    perksNeeded: "Elemental Honing",
-    reference: "Reddit",
-    referenceUrl:
-      "https://www.reddit.com/r/CrucibleGuidebook/comments/1ptr0fj/are_there_any_popular_weapon_stats_breaking/",
-  },
-  {
-    weapon: "Pulse Rifle",
+    weapon: "Pulse",
     frame: "Lightweight (450)",
     weaponsStat: "187*",
     statNote: "Sources vary (186-188)",
@@ -70,16 +57,16 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.80s",
     newSTK: "7h0b",
     perksNeeded: "None",
-    reference: "Destiny WeaponStat Chart v1.15",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
     additionalRefs: [
       {
-        name: "Era's Weapon Stat Calculator",
+        name: "Era's Weapon Stat Calculator - Era",
         url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
       },
       {
-        name: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2",
+        name: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2 - dalx21",
         url: "https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=0#gid=0",
       },
     ],
@@ -93,7 +80,7 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.50s",
     newSTK: "6h0b",
     perksNeeded: "None",
-    reference: "Destiny WeaponStat Chart v1.15",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
@@ -106,7 +93,7 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.67s",
     newSTK: "11h0b",
     perksNeeded: "None",
-    reference: "Destiny WeaponStat Chart v1.15",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
@@ -119,7 +106,7 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "0.67s",
     newSTK: "11h0b",
     perksNeeded: "Overclocked Heatsink (+2%)",
-    reference: "Destiny WeaponStat Chart v1.15",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
@@ -132,15 +119,92 @@ export const breakpoints: Breakpoint[] = [
     newTTK: "-",
     newSTK: "2 Hits",
     perksNeeded: "-",
-    reference: "Reddit",
+    reference: "Glaive melee is capable of a 2stab with just Melee stat! - Mnkke",
     referenceUrl:
-      "https://www.reddit.com/r/CrucibleGuidebook/comments/1q8vze1/ttk_breakpoints_cheatsheet_weapons_stat/",
+      "https://www.reddit.com/r/CrucibleGuidebook/comments/1m8cyzi/glaive_melee_is_capable_of_a_2stab_with_just/",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Adaptive (390)",
+    weaponsStat: "???",
+    statNote: "Don't know how to interpret entries for Adaptive Pulse TTK shifts",
+    baseTTK: "1.00s",
+    baseSTK: "6h2b",
+    newTTK: "????",
+    newSTK: "7h",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+    additionalRefs: [
+      {
+        name: "Era's Weapon Stat Calculator - Era",
+        url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
+      },
+    ],
+  },
+  {
+    weapon: "Pulse",
+    frame: "Rapid Fire (540)",
+    weaponsStat: "102",
+    statNote: "Don't know new TTK math",
+    baseTTK: "0.8s",
+    baseSTK: "7h2b",
+    newTTK: "????",
+    newSTK: "8h",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Scout",
+    frame: "Balanced Heat (260)",
+    weaponsStat: "165",
+    statNote: "Don't know new TTK math",
+    baseTTK: "0.93s",
+    baseSTK: "4h1b",
+    newTTK: "????",
+    newSTK: "4h0b",
+    perksNeeded: "Overclocked Heatsink",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Pulse",
+    frame: "High Impact (340)",
+    weaponsStat: "150",
+    statNote: "Don't know new TTK math",
+    baseTTK: "0.67s",
+    baseSTK: "6h",
+    newTTK: "????",
+    newSTK: "5h1b",
+    perksNeeded: "Headseeker",
+    reference: "Era's Weapon Stat Calculator - Era",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Rapid Fire (540)",
+    weaponsStat: "102",
+    statNote: "Don't know new TTK math",
+    baseTTK: "0.8s",
+    baseSTK: "7h2b",
+    newTTK: "????",
+    newSTK: "8h",
+    perksNeeded: "Headseeker",
+    reference: "Era's Weapon Stat Calculator - Era",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
   },
 ];
 
 export interface EaseOfUseBreakpoint {
   weapon: string;
   frame: string;
+  weaponsStat: string;
   ttk: string;
   baseSTK: string;
   newSTK: string;
@@ -153,24 +217,125 @@ export const easeOfUseBreakpoints: EaseOfUseBreakpoint[] = [
   {
     weapon: "Sidearm",
     frame: "Lightweight (360)",
+    weaponsStat: "NA",
     ttk: "0.67s",
     baseSTK: "4h1b",
     newSTK: "3h2b",
     perksNeeded: "Enh. Precision Instrument",
-    reference: "Era's Weapon Stat Calculator",
+    reference: "Era's Weapon Stat Calculator - Era",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Adaptive (390)",
+    weaponsStat: "168",
+    ttk: "1.00s",
+    baseSTK: "6h2b",
+    newSTK: "5h3b",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Aggressive Burst (450)",
+    weaponsStat: "106",
+    ttk: "0.73s",
+    baseSTK: "8h",
+    newSTK: "7h1b",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Balanced Heat (540)",
+    weaponsStat: "183",
+    ttk: "0.73s",
+    baseSTK: "8h",
+    newSTK: "7h1b",
+    perksNeeded: "Overclocked Heatsink",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Dynamic Heat (540)",
+    weaponsStat: "172",
+    ttk: "0.73s",
+    baseSTK: "8h",
+    newSTK: "7h1b",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Pulse",
+    frame: "Lightweight (450)",
+    weaponsStat: "114",
+    ttk: "0.87s",
+    baseSTK: "7h1b",
+    newSTK: "6h2b",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Scout",
+    frame: "Balanced Heat (260)",
+    weaponsStat: "152",
+    ttk: "0.93s",
+    baseSTK: "4h1b",
+    newSTK: "3h2b",
+    perksNeeded: "Overclocked Heatsink",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    weapon: "Scout",
+    frame: "High Impact (150)",
+    weaponsStat: "198",
+    ttk: "0.8s",
+    baseSTK: "3h0b",
+    newSTK: "2h1b",
+    perksNeeded: "Enh. Precision Instrument",
+    reference: "Era's Weapon Stat Calculator - Era",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
+  },
+  {
+    weapon: "Scout",
+    frame: "Rapid Fire (260)",
+    weaponsStat: "193",
+    ttk: "0.93s",
+    baseSTK: "4h1b",
+    newSTK: "3h2b",
+    perksNeeded: "None",
+    reference: "Destiny WeaponStat Chart v1.15 - Hugo",
+    referenceUrl:
+      "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
 ];
 
 export const references = [
   {
-    name: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2",
+    name: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2 - dalx21",
     url: "https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=0#gid=0",
   },
   {
-    name: "Destiny WeaponStat Chart v1.15",
+    name: "Destiny WeaponStat Chart v1.15 - Hugo",
     url: "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
+  },
+  {
+    name: "Era's Weapon Stat Calculator - Era",
+    url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
   },
   {
     name: "Reddit Discussion",

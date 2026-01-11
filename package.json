@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate": "npx tsx scripts/validate-breakpoints.ts"
   },
   "dependencies": {
     "next": "^15.1.3",

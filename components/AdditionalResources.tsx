@@ -1,30 +1,32 @@
 "use client";
 
 const resources = [
+  // Google Sheets - alphabetical
   {
-    title: "Era's Weapon Stat Calculator",
-    url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=615915333#gid=615915333",
-    notes: "More comprehensive TTK shift + ease-of-use list",
+    title: "Destiny 2 Glaive Compendium - Oni",
+    url: "https://docs.google.com/spreadsheets/d/1FT-BL6UA6ntNEN7_btqwlfJaPYTAeIFvlhpkvWHTajc/edit?gid=303507057#gid=303507057",
+    notes: "Base damage values for weapons and melees",
     type: "googleSheet" as const,
   },
   {
-    title: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2",
+    title: "Destiny 2 PVP Weapons Stat TTK Breakpoints v1.2 - dalx21",
     url: "https://docs.google.com/spreadsheets/d/1cofx24Yjy_gou82e6qmSVJ7VgCnqPPgj79E4peC3XvM/edit?gid=0#gid=0",
     notes: "Original TTK breakpoints spreadsheet",
     type: "googleSheet" as const,
   },
   {
-    title: "Destiny WeaponStat Chart v1.15",
+    title: "Destiny WeaponStat Chart v1.15 - Hugo",
     url: "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
     notes: "Comprehensive weapon stat data",
     type: "googleSheet" as const,
   },
   {
-    title: "r/CrucibleGuidebook - Weapon Stats Breaking Points",
-    url: "https://www.reddit.com/r/CrucibleGuidebook/comments/1ptr0fj/are_there_any_popular_weapon_stats_breaking/",
-    notes: "Community discussion on popular breakpoints",
-    type: "reddit" as const,
+    title: "Era's Weapon Stat Calculator - Era",
+    url: "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=615915333#gid=615915333",
+    notes: "More comprehensive TTK shift + ease-of-use list",
+    type: "googleSheet" as const,
   },
+  // Reddit - alphabetical
   {
     title: "r/CrucibleGuidebook - TTK Breakpoints Cheatsheet",
     url: "https://www.reddit.com/r/CrucibleGuidebook/comments/1q8vze1/ttk_breakpoints_cheatsheet_weapons_stat/",
@@ -32,10 +34,10 @@ const resources = [
     type: "reddit" as const,
   },
   {
-    title: "Destiny 2 Glaive Compendium",
-    url: "https://docs.google.com/spreadsheets/d/1FT-BL6UA6ntNEN7_btqwlfJaPYTAeIFvlhpkvWHTajc/edit?gid=303507057#gid=303507057",
-    notes: "Base damage values for weapons and melees",
-    type: "googleSheet" as const,
+    title: "r/CrucibleGuidebook - Weapon Stats Breaking Points",
+    url: "https://www.reddit.com/r/CrucibleGuidebook/comments/1ptr0fj/are_there_any_popular_weapon_stats_breaking/",
+    notes: "Community discussion on popular breakpoints",
+    type: "reddit" as const,
   },
   {
     title: "r/DestinyTheGame - Precision Instrument Appreciation Post",
