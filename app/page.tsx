@@ -3,6 +3,7 @@ import BreakpointsTable from "@/components/BreakpointsTable";
 import EaseOfUseTable from "@/components/EaseOfUseTable";
 import WeaponsStatCalculator from "@/components/WeaponsStatCalculator";
 import AdditionalResources from "@/components/AdditionalResources";
+import SandboxUpdateLog from "@/components/SandboxUpdateLog";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
           <EaseOfUseTable />
           <WeaponsStatCalculator />
           <AdditionalResources />
+          <SandboxUpdateLog />
         </div>
 
         <Footer />

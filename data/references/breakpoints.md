@@ -8,7 +8,7 @@ Last updated: 2025-01-10
 
 ## Breakpoints Table
 
-| Weapon | Frame (RPM) | WPN Stat | Base TTK | Base STK | New TTK | New STK | Perks Needed | Notes |
+| Weapon | Frame (RPM) | WPN Stat | Base TTK | Base STK | New TTK | New STK | Perks Needed | Notes / Resource |
 |--------|-------|----------|----------|----------|---------|---------|--------------|-------|
 | Hand Cannon | Precision (180) | 169 | 1.00s | 2h2b | 0.67s | 3h0b | Enh. Precision Instrument | |
 | Hand Cannon | Dynamic Heat (180) | 178 | 1.00s | 2h2b | 0.67s | 3h0b | Overclocked Heatsink (+2%) | |
@@ -17,7 +17,6 @@ Last updated: 2025-01-10
 | Sidearm | Adaptive-Burst (491) | 168 | 0.73s | 6h1b | 0.50s | 6h0b | None | |
 | SMG | Lightweight (900) | 186 | 0.73s | 11h1b | 0.67s | 11h0b | None | |
 | SMG | Balanced Heat (900) | 145 | 0.73s | 11h1b | 0.67s | 11h0b | Overclocked Heatsink (+2%) | |
-| Scout | Rapid-Fire (260) | 193 | 0.93s | 3h2b | 0.7s | 4h | Enh. Precision Instrument | | 
 | Glaive Melee | Any | Melee 190 | - | 3 Hits | - | 2 Hits | - | Uses Melee stat, not Weapons |
 
 ---
@@ -26,12 +25,7 @@ Last updated: 2025-01-10
 
 | Weapon | Frame (RPM) | TTK | Base STK | New STK | Perks Needed | Notes |
 |--------|-------|-----|----------|---------|--------------|-------|
-| Pulse  | Agressive Burst (450) | 0.73s | 7h1b | 6h2b | Headseeker  | Era's | 
-| Pulse  | High Impact (340)     | 0.67s | 6h   | 5h1b | Headseeker  | Era's | 
-| Pulse  | Lightweight (450)     | 0.8s  | 7h   | 5h2b | Sword Logic | Era's | 
-| Pulse  | Rapid Fire (540)      | 0.73s | 8h   | 7h1b | Headseeker  | Era's | 
 | Sidearm| Lightweight (360) | 0.67s | 4h1b | 3h2b | Enh. Precision Instrument | Era's | 
-| Scout  | High Impact (150) | 0.8s  | 3h0b | 2h1b | Enh. Precision Instrument | Era's |
 
 ---
 ## References

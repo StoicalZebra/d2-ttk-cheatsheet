@@ -107,6 +107,13 @@ export default function Header() {
           >
             Resources
           </a>
+          <span className="text-dim">|</span>
+          <a
+            href="#sandbox-log"
+            className="text-sm text-arc hover:text-solar transition-colors font-medium"
+          >
+            Sandbox Log
+          </a>
         </div>
 
         {/* Decorative elements */}

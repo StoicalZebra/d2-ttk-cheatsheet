@@ -122,19 +122,6 @@ export const breakpoints: Breakpoint[] = [
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
   },
   {
-    weapon: "Scout Rifle",
-    frame: "Rapid-Fire (260)",
-    weaponsStat: "193",
-    baseTTK: "0.93s",
-    baseSTK: "3h2b",
-    newTTK: "0.70s",
-    newSTK: "4h0b",
-    perksNeeded: "Enh. Precision Instrument",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
     weapon: "Glaive Melee",
     frame: "Any",
     weaponsStat: "Melee 190",
@@ -162,50 +149,6 @@ export interface EaseOfUseBreakpoint {
 
 export const easeOfUseBreakpoints: EaseOfUseBreakpoint[] = [
   {
-    weapon: "Pulse Rifle",
-    frame: "Aggressive Burst (450)",
-    ttk: "0.73s",
-    baseSTK: "7h1b",
-    newSTK: "6h2b",
-    perksNeeded: "Headseeker",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
-    weapon: "Pulse Rifle",
-    frame: "High Impact (340)",
-    ttk: "0.67s",
-    baseSTK: "6h0b",
-    newSTK: "5h1b",
-    perksNeeded: "Headseeker",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
-    weapon: "Pulse Rifle",
-    frame: "Lightweight (450)",
-    ttk: "0.80s",
-    baseSTK: "7h0b",
-    newSTK: "5h2b",
-    perksNeeded: "Sword Logic",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
-    weapon: "Pulse Rifle",
-    frame: "Rapid-Fire (540)",
-    ttk: "0.73s",
-    baseSTK: "8h0b",
-    newSTK: "7h1b",
-    perksNeeded: "Headseeker",
-    reference: "Era's Weapon Stat Calculator",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
     weapon: "Sidearm",
     frame: "Lightweight (360)",
     ttk: "0.67s",
@@ -218,10 +161,10 @@ export const easeOfUseBreakpoints: EaseOfUseBreakpoint[] = [
   },
   {
     weapon: "Scout Rifle",
-    frame: "High Impact (150)",
-    ttk: "0.80s",
-    baseSTK: "3h0b",
-    newSTK: "2h1b",
+    frame: "Rapid-Fire (260)",
+    ttk: "0.70s",
+    baseSTK: "3h2b",
+    newSTK: "4h0b",
     perksNeeded: "Enh. Precision Instrument",
     reference: "Era's Weapon Stat Calculator",
     referenceUrl:
