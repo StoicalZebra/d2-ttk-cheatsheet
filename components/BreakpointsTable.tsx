@@ -245,8 +245,11 @@ export default function BreakpointsTable() {
       </div>
 
       {/* Subtitle */}
-      <p className="text-dim mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "150ms", animationFillMode: "forwards" }}>
+      <p className="text-dim mb-2 opacity-0 animate-fade-in-up" style={{ animationDelay: "150ms", animationFillMode: "forwards" }}>
         Weapons stat thresholds that shift Time-to-Kill. Hit these breakpoints with non-kill-activated damage perks for faster optimal TTK.
+      </p>
+      <p className="text-dim text-sm mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "200ms", animationFillMode: "forwards" }}>
+        <span className="text-solar">Disclaimer:</span> Just the highlights / popular breakpoints. See source data for all possible breakpoints.
       </p>
 
       {/* Table Container */}

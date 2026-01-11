@@ -37,6 +37,12 @@ const resources = [
     notes: "Base damage values for weapons and melees",
     type: "googleSheet" as const,
   },
+  {
+    title: "r/DestinyTheGame - Precision Instrument Appreciation Post",
+    url: "https://www.reddit.com/r/DestinyTheGame/comments/1dsd7sl/precision_instrument_appreciation_post_pvp/",
+    notes: "Precision Instrument perk PvP breakpoint analysis",
+    type: "reddit" as const,
+  },
 ];
 
 function ResourceIcon({ type }: { type: "googleSheet" | "reddit" | "link" }) {

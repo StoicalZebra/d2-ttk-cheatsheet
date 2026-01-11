@@ -88,6 +88,13 @@ export default function Header() {
           </a>
           <span className="text-dim">|</span>
           <a
+            href="#ease-of-use"
+            className="text-sm text-arc hover:text-solar transition-colors font-medium"
+          >
+            Ease of Use
+          </a>
+          <span className="text-dim">|</span>
+          <a
             href="#calculator"
             className="text-sm text-arc hover:text-solar transition-colors font-medium"
           >
