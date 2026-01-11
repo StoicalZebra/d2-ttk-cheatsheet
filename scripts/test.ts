@@ -7,6 +7,7 @@
  * 2. Breakpoint data validation (no NaN, required fields)
  * 3. Reference URL validation
  * 4. No hardcoded versions in components
+ * 5. Component column rendering (all data fields rendered)
  */
 
 import * as fs from "fs";
@@ -183,6 +184,60 @@ test("Google Sheets URLs use docs.google.com domain", () => {
         `${bp.weapon} ${bp.frame} Google Sheets URL malformed: ${bp.referenceUrl}`
       );
     }
+  }
+});
+
+// =============================================================================
+// Component Column Rendering Tests
+// =============================================================================
+console.log("\nComponent Column Rendering:");
+
+test("BreakpointsTable renders all data columns", () => {
+  const tablePath = path.join(__dirname, "../components/BreakpointsTable.tsx");
+  const tableContent = fs.readFileSync(tablePath, "utf-8");
+
+  // Required columns from Breakpoint interface (excluding optional fields)
+  const requiredColumns = [
+    "weapon",
+    "frame",
+    "weaponsStat",
+    "baseTTK",
+    "baseSTK",
+    "newTTK",
+    "newSTK",
+    "perksNeeded",
+    "reference",
+  ];
+
+  for (const col of requiredColumns) {
+    assertTrue(
+      tableContent.includes(`data.${col}`) || tableContent.includes(`bp.${col}`),
+      `BreakpointsTable missing column: ${col}`
+    );
+  }
+});
+
+test("EaseOfUseTable renders all data columns", () => {
+  const tablePath = path.join(__dirname, "../components/EaseOfUseTable.tsx");
+  const tableContent = fs.readFileSync(tablePath, "utf-8");
+
+  // Required columns from EaseOfUseBreakpoint interface
+  const requiredColumns = [
+    "weapon",
+    "frame",
+    "weaponsStat",
+    "ttk",
+    "baseSTK",
+    "newSTK",
+    "perksNeeded",
+    "reference",
+  ];
+
+  for (const col of requiredColumns) {
+    assertTrue(
+      tableContent.includes(`data.${col}`) || tableContent.includes(`bp.${col}`),
+      `EaseOfUseTable missing column: ${col}`
+    );
   }
 });
 

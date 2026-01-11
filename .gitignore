@@ -45,3 +45,4 @@ temp_backup/
 
 # MCP config
 .mcp.json
+.playwright-mcp/
