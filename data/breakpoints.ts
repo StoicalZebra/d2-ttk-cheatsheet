@@ -1,4 +1,4 @@
-export const BREAKPOINTS_VERSION = "1.1";
+export const BREAKPOINTS_VERSION = "1.2";
 
 export interface Reference {
   name: string;
@@ -170,34 +170,6 @@ export const breakpoints: Breakpoint[] = [
     reference: "Destiny WeaponStat Chart v1.15 - Hugo",
     referenceUrl:
       "https://docs.google.com/spreadsheets/d/1FWMC-Vd_bGEoRkkrn3drWIORCFYyWQVMNlMasa4OE6I/edit?gid=1692216024#gid=1692216024",
-  },
-  {
-    weapon: "Pulse",
-    frame: "High Impact (340)",
-    weaponsStat: "150",
-    statNote: "Don't know new TTK math",
-    baseTTK: "0.67s",
-    baseSTK: "6h",
-    newTTK: "????",
-    newSTK: "5h1b",
-    perksNeeded: "Headseeker",
-    reference: "Era's Weapon Stat Calculator - Era",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
-  },
-  {
-    weapon: "Pulse",
-    frame: "Rapid Fire (540)",
-    weaponsStat: "102",
-    statNote: "Don't know new TTK math",
-    baseTTK: "0.8s",
-    baseSTK: "7h2b",
-    newTTK: "????",
-    newSTK: "8h",
-    perksNeeded: "Headseeker",
-    reference: "Era's Weapon Stat Calculator - Era",
-    referenceUrl:
-      "https://docs.google.com/spreadsheets/d/1yhuVRHML0c_753grr7E8Mhg-rkLtCh8suNB3pmlIAfU/edit?gid=0#gid=0",
   },
 ];
 

@@ -1,5 +1,5 @@
 # TTK Breakpoints Reference
-**Version: 1.1**
+**Version: 1.2**
 
 This is the source of truth for breakpoint data. Edit this file, then update `data/breakpoints.ts` to match.
 
@@ -21,8 +21,6 @@ Last updated: 2025-01-11
 | Pulse        | Adaptive (390)       | ???  | 1.00     | 6h2b     | ????    | 7h      | None                       | Hugo + Era | Don't know how to interpret entries for Adaptive Pulse TTK shifts |
 | Pulse        | Rapid Fire (540)     | 102  | 0.8      | 7h2b     | ????    | 8h      | None                       | Hugo   | Don't know new TTK math |
 | Scout        | Balanced Heat (260)  | 165  | 0.93     | 4h1b     | ????    | 4h0b    | Overclocked Heatsink       | Hugo   | Don't know new TTK math |
-| Pulse        | High Impact (340)    | 150  | 0.67     | 6h       | ????    | 5h1b    | Headseeker                 | Era    | Don't know new TTK math |
-| Pulse        | Rapid Fire (540)     | 102  | 0.8      | 7h2b     | ????    | 8h      | Headseeker                 | Era    | Don't know new TTK math |
 
 ---
 
