@@ -1,6 +1,53 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import { easeOfUseBreakpoints, type EaseOfUseBreakpoint } from "@/data/breakpoints";
+import { calcDamagePercent, formatDamagePercent } from "@/lib/calculator";
+
+type SortColumn = "weapon" | "frame" | "weaponsStat" | "ttk" | "baseSTK" | "perksNeeded" | "reference";
+type SortDirection = "asc" | "desc";
+
+function parseNumeric(val: string): number {
+  // Treat "NA" as 0 so it sorts first
+  if (val.toUpperCase() === "NA") return 0;
+  const num = parseFloat(val);
+  return isNaN(num) ? Infinity : num;
+}
+
+function SortableHeader({
+  column,
+  label,
+  currentSort,
+  direction,
+  onSort,
+  className = "",
+  children,
+}: {
+  column: SortColumn;
+  label: string;
+  currentSort: SortColumn | null;
+  direction: SortDirection;
+  onSort: (column: SortColumn) => void;
+  className?: string;
+  children?: React.ReactNode;
+}) {
+  const isActive = currentSort === column;
+  return (
+    <th
+      onClick={() => onSort(column)}
+      className={`py-3 px-4 font-display text-xs tracking-widest uppercase cursor-pointer select-none transition-colors hover:text-[var(--color-text)] ${
+        isActive ? "text-stasis" : "text-dim"
+      } ${className}`}
+    >
+      <span className="inline-flex items-center gap-1">
+        {children || label}
+        {isActive && (
+          <span className="text-stasis">{direction === "asc" ? "▲" : "▼"}</span>
+        )}
+      </span>
+    </th>
+  );
+}
 
 function WeaponBadge({ weapon }: { weapon: string }) {
   const styleMap: Record<string, React.CSSProperties> = {
@@ -145,6 +192,25 @@ function TableRow({ data, index }: { data: EaseOfUseBreakpoint; index: number })
       </td>
       <td className="py-4 px-4 font-semibold text-base">{data.frame}</td>
       <td className="py-4 px-4">
+        <div className="flex items-baseline gap-2">
+          <span className="font-display text-lg text-arc font-bold tracking-wider">
+            {data.weaponsStat}
+          </span>
+          {(() => {
+            const statNum = parseInt(data.weaponsStat.replace(/[^0-9]/g, ""));
+            if (!isNaN(statNum) && statNum >= 100) {
+              const dmgPercent = calcDamagePercent(statNum);
+              return (
+                <span className="text-sm text-solar">
+                  (+{formatDamagePercent(dmgPercent)})
+                </span>
+              );
+            }
+            return null;
+          })()}
+        </div>
+      </td>
+      <td className="py-4 px-4">
         <span className="text-stasis font-semibold">{data.ttk}</span>
       </td>
       <td className="py-4 px-4">
@@ -161,6 +227,42 @@ function TableRow({ data, index }: { data: EaseOfUseBreakpoint; index: number })
 }
 
 export default function EaseOfUseTable() {
+  const [sortColumn, setSortColumn] = useState<SortColumn | null>("weaponsStat");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+
+  const handleSort = (column: SortColumn) => {
+    if (sortColumn === column) {
+      setSortDirection((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+
+  const sortedBreakpoints = useMemo(() => {
+    if (!sortColumn) return easeOfUseBreakpoints;
+
+    return [...easeOfUseBreakpoints].sort((a, b) => {
+      let aVal: string | number = a[sortColumn];
+      let bVal: string | number = b[sortColumn];
+
+      // Handle numeric columns
+      if (sortColumn === "weaponsStat" || sortColumn === "ttk") {
+        aVal = parseNumeric(aVal);
+        bVal = parseNumeric(bVal);
+      }
+
+      let result: number;
+      if (typeof aVal === "number" && typeof bVal === "number") {
+        result = aVal - bVal;
+      } else {
+        result = String(aVal).localeCompare(String(bVal));
+      }
+
+      return sortDirection === "asc" ? result : -result;
+    });
+  }, [sortColumn, sortDirection]);
+
   return (
     <section id="ease-of-use" className="relative scroll-mt-6">
       {/* Section Header */}
@@ -202,28 +304,21 @@ export default function EaseOfUseTable() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-[var(--color-border)] bg-void-lighter/50">
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  Weapon
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  Frame (RPM)
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
+                <SortableHeader column="weapon" label="Weapon" currentSort={sortColumn} direction={sortDirection} onSort={handleSort} />
+                <SortableHeader column="frame" label="Frame (RPM)" currentSort={sortColumn} direction={sortDirection} onSort={handleSort} />
+                <SortableHeader column="weaponsStat" label="Wpn Stat" currentSort={sortColumn} direction={sortDirection} onSort={handleSort}>
+                  <span className="text-arc">Wpn Stat</span>
+                </SortableHeader>
+                <SortableHeader column="ttk" label="TTK" currentSort={sortColumn} direction={sortDirection} onSort={handleSort}>
                   <span className="text-stasis">TTK</span>
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  STK
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  Perk Required
-                </th>
-                <th className="py-3 px-4 font-display text-xs tracking-widest text-dim uppercase">
-                  Source
-                </th>
+                </SortableHeader>
+                <SortableHeader column="baseSTK" label="STK" currentSort={sortColumn} direction={sortDirection} onSort={handleSort} />
+                <SortableHeader column="perksNeeded" label="Perk Required" currentSort={sortColumn} direction={sortDirection} onSort={handleSort} />
+                <SortableHeader column="reference" label="Source" currentSort={sortColumn} direction={sortDirection} onSort={handleSort} />
               </tr>
             </thead>
             <tbody>
-              {easeOfUseBreakpoints.map((bp, index) => (
+              {sortedBreakpoints.map((bp, index) => (
                 <TableRow key={`${bp.weapon}-${bp.frame}`} data={bp} index={index} />
               ))}
             </tbody>
