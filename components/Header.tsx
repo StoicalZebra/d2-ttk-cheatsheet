@@ -1,6 +1,7 @@
 "use client";
 
 import ThemeToggle from "./ThemeToggle";
+import { BREAKPOINTS_VERSION } from "@/data/breakpoints";
 
 export default function Header() {
   return (
@@ -12,6 +13,9 @@ export default function Header() {
           <span className="opacity-60">Current as of:</span>
           <br />
           <span className="font-medium">January 2026 (Renegades)</span>
+        </div>
+        <div className="text-xs text-dim opacity-60">
+          Data v{BREAKPOINTS_VERSION}
         </div>
       </div>
 
